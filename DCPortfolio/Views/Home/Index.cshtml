@@ -1,0 +1,40 @@
+﻿@model DCPortfolio.Models.IndexVM
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+
+<div class="row ">
+    
+    @foreach (var item in Model.PortfolioList)
+    {
+
+
+
+
+        <div class="col-sm-12 col-md-4 col-lg-4 row-eq-height">
+            <div class="product-item">
+                <div class="pi-img-wrapper">
+                    <img src="@item.PFImage" class="img-responsive" alt="@item.PFImagedescription">
+                    
+                    <div>
+                        <a href="#" class="btn">Zoom</a>
+                        <a href="#" class="btn">View</a>
+                    </div>
+                </div>
+                <h3><a href="Portfolio/Details/@item.PFid">@item.PFTitle</a></h3>
+                <div class="pi-price">@item.PFCategory</div>
+                <a href="Portfolio/Details/@item.PFid" class="btn add2cart">View</a>
+            </div>
+        </div>
+        
+
+
+
+
+    }
+        
+</div>

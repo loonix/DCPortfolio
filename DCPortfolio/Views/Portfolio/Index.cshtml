@@ -1,0 +1,65 @@
+﻿@model IEnumerable<DCPortfolio.Portfolio>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Portfolios</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table-container table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            Category
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Users.Name)
+        </th>
+        
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="@Html.DisplayFor(modelItem => item.Image)" width="50" height="50" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categories.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Users.Name)
+        </td>
+       
+        <td>
+
+
+
+
+
+            @Html.ActionLink(" ", "Edit", new { id = item.PortfolioId }, new { @class = "fa fa-pencil fa-2 btn btn-default" })
+            @Html.ActionLink(" ", "Details", new { id = item.PortfolioId }, new { @class = "fa fa-eye fa-2 btn btn-default" })
+            @Html.ActionLink(" ", "Delete", new { id = item.PortfolioId }, new { @class = "fa fa-trash-o fa-2 btn btn-default" })
+        </td>
+    </tr>
+}
+
+</table>

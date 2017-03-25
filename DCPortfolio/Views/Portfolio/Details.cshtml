@@ -1,0 +1,56 @@
+﻿@model DCPortfolio.Portfolio
+
+@{
+    ViewBag.Title = "Details";
+}
+<!--
+<h2>Details</h2>-->
+
+<div>
+  <!--  <h4>Portfolio</h4>
+    @*Html.ActionLink("Back to List", "Index")*@
+    <hr />
+    -->
+
+    <div class="col-lg-4">
+
+        <div class="product-item">
+            <div class="pi-img-wrapper">
+                <img src="@Model.Image" class="img-responsive" alt="@Model.Imagedescription">
+                <div>
+                    <a href="#" class="btn">Zoom</a>
+                    <a href="#" class="btn">View</a>
+                </div>
+            </div>
+            <!--<div class="sticker sticker-new"></div>-->
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.PortfolioId })
+
+            </p>
+            <dt>
+                Category
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Categories.Name)
+            </dd>
+        </div>
+
+       
+        
+    </div>
+    <div class="col-lg-8">
+        <div class="product-desc">
+           <h2>@Html.DisplayFor(model => model.Title)</h2>
+                <p>@Html.DisplayFor(model => model.Description)</p>
+                <br>
+                <p>@Html.Raw(Model.pContent)</p>
+                <p>Author: @Html.DisplayFor(model => model.Users.Name)</p>
+                </div>
+
+    </div>
+
+
+
+</div>
+
